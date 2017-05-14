@@ -218,7 +218,6 @@
     players. -->
     <integer name="config_safe_media_volume_index">8</integer>
 
-
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
@@ -233,7 +232,6 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 	
-
     <!-- Set to true if the wifi display supports compositing content stored
          in gralloc protected buffers.  For this to be true, there must exist
          a protected hardware path for surface flinger to composite and send
@@ -255,7 +253,7 @@
     <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
      
     <!-- Maximum number of supported users -->
-    <integer name="config_multiuserMaximumUsers">4</integer>
+    <integer name="config_multiuserMaximumUsers">2</integer>
 
     <!-- Whether UI for multi user should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
@@ -265,4 +263,10 @@
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
  	 true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
      <bool name="config_useSystemClockforRotationSensor">true</bool>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+
+    <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
+    <bool name="config_useRoundIcon">true</bool>
 </resources>

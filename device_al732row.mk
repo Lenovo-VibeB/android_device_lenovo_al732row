@@ -1,35 +1,49 @@
+# Copyright (C) 2015 The CyanogenMod Project
+#		2017 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# These additionals go to /default.prop
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
-ro.allow.mock.location=1 \
-ro.debuggable=1 \
-ro.adb.secure=0 \
-persist.service.acm.enable=0 \
-persist.sys.usb.config=mtp \
-ro.mount.fs=EXT4 \
-debug.hwui.render_dirty_regions=false \
-persist.radio.multisim.config=dsds \
-ro.mtk_lte_support=1 \
-ro.telephony.ril_class=MT6735 \
-ro.telephony.ril.config=fakeiccid \
-ro.telephony.sim.count=2 \
-persist.gemini.sim_num=2 \
-ril.current.share_modem=2 \
-ro.mtk_gps_support=1 \
-ro.mtk_agps_app=1 \
-persist.debug.xlog.enable=1 \
-persist.sys.display.clearMotion=0 
-
-# The gps config appropriate for this device
+$(call inherit-product-if-exists, vendor/lenovo/al732row/al732row-vendor.mk)
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/lenovo/al732row/al732row-vendor.mk)
+# Aditional Properties
+ADDITIONAL_DEFAULT_PROPERTIES +=
+    ro.secure=0 \
+    ro.allow.mock.location=1 \
+    ro.debuggable=1 \
+    ro.adb.secure=0 \
+    persist.service.acm.enable=0 \
+    persist.sys.usb.config=mtp \
+    ro.mount.fs=EXT4 \
+    debug.hwui.render_dirty_regions=false \
+    persist.radio.multisim.config=dsds \
+    ro.mtk_lte_support=1 \
+    ro.telephony.ril_class=MT6735 \
+    ro.telephony.ril.config=fakeiccid \
+    ro.telephony.sim.count=2 \
+    persist.gemini.sim_num=2 \
+    ril.current.share_modem=2 \
+    ro.mtk_gps_support=1 \
+    ro.mtk_agps_app=1 \
+    persist.debug.xlog.enable=1 \
+    persist.sys.display.clearMotion=0
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay # enable this to be able overlay a default wallpaper
 
+# Prebuilt Kernel
 LOCAL_PATH := device/lenovo/al732row
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
@@ -145,18 +159,14 @@ PRODUCT_PACKAGES += \
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
 
-##
-#$(call inherit-product, build/target/product/full.mk)
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_al732row
 PRODUCT_DEVICE := al732row
 PRODUCT_LOCALES := en_US es_US
 
+# Bootanimation
 TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
-
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 ## CM14 mtk symbols
 PRODUCT_PACKAGES += \
@@ -167,4 +177,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.mt6735m \
     YGPS
+
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
