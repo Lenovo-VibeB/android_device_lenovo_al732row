@@ -137,9 +137,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 BOARD_SEPOLICY_DIRS := \
        device/lenovo/al732row/sepolicy
 
-# Use old sepolicy version
-POLICYVERS := 29
-
 BLOCK_BASED_OTA := false
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so # for symbols in mtkaudio.cpp + mtksymbols
 
