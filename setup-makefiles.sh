@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DEVICE=x5pro
-VENDOR=Doogee
+DEVICE=al732row
+VENDOR=lenovo
 
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk

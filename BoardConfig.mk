@@ -1,8 +1,8 @@
 # inherit from the proprietary version
--include vendor/doogee/x5pro/BoardConfigVendor.mk
+-include vendor/lenovo/al732row/BoardConfigVendor.mk
 #USE_NINJA := false
 # GPS
-TARGET_SPECIFIC_HEADER_PATH := device/doogee/x5pro/include
+TARGET_SPECIFIC_HEADER_PATH := device/lenovo/al732row/include
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6735m
@@ -37,7 +37,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 3975675904
 BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/doogee/x5pro/kernel
+TARGET_PREBUILT_KERNEL := device/lenovo/al732row/kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
 
 BOARD_CUSTOM_BOOTIMG := true
@@ -45,7 +45,7 @@ BOARD_CUSTOM_BOOTIMG := true
 TARGET_KMODULES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := hct6735m_35gu_m0,hct6735m_35gu_n1,x5pro
+TARGET_OTA_ASSERT_DEVICE := al732row,A2016b30
 
 #COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
@@ -54,7 +54,7 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
 # EGL
-BOARD_EGL_CFG := device/doogee/x5pro/configs/egl.cfg
+BOARD_EGL_CFG := device/lenovo/al732row/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
@@ -67,7 +67,7 @@ MTK_HARDWARE := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
 
 # RIL 
-BOARD_RIL_CLASS := ../../../device/doogee/x5pro/ril/
+BOARD_RIL_CLASS := ../../../device/lenovo/al732row/ril/
 
 BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_CONNECTIVITY_MODULE := conn_soc
@@ -87,14 +87,14 @@ WIFI_DRIVER_FW_PATH_P2P:=P2P
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/doogee/x5pro/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/al732row/bluetooth
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # CWM
-TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/root/recovery.fstab
-TARGET_PREBUILT_RECOVERY_KERNEL := device/doogee/x5pro/kernel
+TARGET_RECOVERY_FSTAB := device/lenovo/al732row/rootdir/root/recovery.fstab
+TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/al732row/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
@@ -116,7 +116,7 @@ TW_USE_TOOLBOX := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
 BOARD_SEPOLICY_DIRS := \
-       device/doogee/x5pro/sepolicy
+       device/lenovo/al732row/sepolicy
 
 # Use old sepolicy version
 POLICYVERS := 29

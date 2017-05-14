@@ -10,7 +10,6 @@ persist.service.acm.enable=0 \
 persist.sys.usb.config=mtp \
 ro.mount.fs=EXT4 \
 debug.hwui.render_dirty_regions=false \
-ro.sf.lcd_density=290 \
 persist.radio.multisim.config=dsds \
 ro.mtk_lte_support=1 \
 ro.telephony.ril_class=MT6735 \
@@ -26,12 +25,12 @@ persist.sys.display.clearMotion=0
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/doogee/x5pro/x5pro-vendor.mk)
+$(call inherit-product-if-exists, vendor/lenovo/al732row/al732row-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/doogee/x5pro/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/doogee/x5pro/overlay # enable this to be able overlay a default wallpaper
+DEVICE_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay # enable this to be able overlay a default wallpaper
 
-LOCAL_PATH := device/doogee/x5pro
+LOCAL_PATH := device/lenovo/al732row
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -40,18 +39,6 @@ endif
 
 PRODUCT_PACKAGES += \
     libxlog
-
-# Lights
-#PRODUCT_PACKAGES += \
-#    lights.mt6737m
-
-# Audio
-#PRODUCT_PACKAGES += \
-#    audio.primary.mt6737m \
-#    audio_policy.default \
-#    audio.a2dp.default \
-#    audio.usb.default \
-#    audio.r_submix.default
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -127,10 +114,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/permissions/android.hardware.microphone.xml:system/etc/permissions/android.hardware.microphone.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml 
 
-#ADDITIONAL_BUILD_PROPERTIES += \
-#cm.updater.type=plain \
-#cm.updater.uri=https://raw.githubusercontent.com/SeriniTY320/updater/master/update.json \
-
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
@@ -166,12 +149,12 @@ $(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
 #$(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_x5pro
-PRODUCT_DEVICE := x5pro
-PRODUCT_LOCALES := en_US ru_RU
+PRODUCT_NAME := full_al732row
+PRODUCT_DEVICE := al732row
+PRODUCT_LOCALES := en_US es_US
 
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
