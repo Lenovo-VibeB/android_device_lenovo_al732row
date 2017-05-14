@@ -43,14 +43,6 @@ ADDITIONAL_DEFAULT_PROPERTIES +=
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay
 
-# Prebuilt Kernel
-LOCAL_PATH := device/lenovo/al732row
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
 PRODUCT_PACKAGES += \
     libxlog
 
@@ -155,10 +147,6 @@ PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
 
-#Hack for prebuilt kernel
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-$(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_al732row
 PRODUCT_DEVICE := al732row
@@ -179,4 +167,3 @@ PRODUCT_PACKAGES += \
     YGPS
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
