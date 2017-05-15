@@ -28,3 +28,5 @@ PRODUCT_NAME := lineage_al732row
 PRODUCT_BRAND := lenovo
 PRODUCT_MODEL := Lenovo Vibe B
 PRODUCT_MANUFACTURER := lenovo
+
+TARGET_UNOFFICIAL_BUILD_ID := CarlosArriaga
