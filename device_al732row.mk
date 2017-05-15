@@ -155,6 +155,10 @@ PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
 
+# Charger Mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 #Hack for prebuilt kernel
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)

@@ -75,3 +75,52 @@ ro.telephony.default_network=9
 persist.sys.display.clearMotion=0
 # ro.mtk_clearmotion_support=1
 fmradio.driver.enable=1
+
+# Performance
+debug.performance.tuning=1
+
+# Better buffer for conections
+net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.umts=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.gprs=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.edge=4096,87380,256960,4096,163 84,256960
+
+# Launcher saved in memory
+ro.HOME_APP_ADJ=1
+
+# Render UI with GPU
+debug.sf.hw=1
+
+# Better scroll
+windowsmgr.max_events_per_sec=500
+
+# Better Scroll N2
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+view.scroll_friction=10
+
+# Better Touch
+debug.performance.tuning=1
+video.accelerate.hw=1
+
+# Reduce the black screen time of the proximity sensor
+ro.lge.proximity.delay=25
+mot.proximity.delay=25
+
+# Liquid Smooth UI
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+ro.ril.enable.a52=1
+ro.ril.enable.a53=0
+
+# Qualcomm Tweaks
+com.qc.hardware=1
+debug.qc.hardware=true
+debug.qctwa.preservebuf=1
+debug.qctwa.statusbar=1
+
+# Little Performance Tweaks
+ro.secure=0
+persist.sys.use_16bpp_alpha=1
+ro.product.gpu.driver=1
