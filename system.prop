@@ -1,15 +1,16 @@
-# system.prop
+#
+# from huaqin/config/hq6735m_35u_b1a_m/al732row/default/system.prop
+#
+#
+# system.prop for generic sdk
+#
 
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
-#rild.libpath=/system/lib64/mtk-ril.so
-#rild.libargs=-d /dev/ttyC0
-
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
-ro.hardware=mt6737m
 # MTK, Infinity, 20090720 }
 
 # MTK, mtk03034, 20101210 {
@@ -23,22 +24,30 @@ ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0
 # MTK, mtk03034 20101213}
 
+
 #
 wifi.tethering.interface=ap0
 #
 
 ro.opengles.version=196608
 
-# ro.opengles.version=65535 # OpenGL ES 1.0
-# ro.opengles.version=65536 # OpenGL ES 1.1
-# ro.opengles.version=131072 # OpenGL ES 2.0
-# ro.opengles.version=196608 # OpenGL ES 3.0
-# ro.opengles.version=196609 # OpenGL ES 3.1
-
-##ro.kernel.qemu=1
-##ro.kernel.qemu.gles=0
-
 wifi.direct.interface=p2p0
+dalvik.vm.heapgrowthlimit=128m
+dalvik.vm.heapsize=256m
+
+# USB MTP WHQL
+ro.sys.usb.mtp.whql.enable=0
+
+# Power off opt in IPO
+sys.ipo.pwrdncap=2
+
+ro.sys.usb.storage.type=mtp,mass_storage
+
+# USB BICR function
+ro.sys.usb.bicr=no
+
+# USB Charge only function
+ro.sys.usb.charging.only=yes
 
 # audio
 ro.camera.sound.forced=0
@@ -47,80 +56,19 @@ ro.audio.silent=0
 ro.zygote.preload.enable=0
 
 # temporary enables NAV bar (soft keys)
-# qemu.hw.mainkeys=0
+qemu.hw.mainkeys=1
 
 ro.kernel.zio=38,108,105,16
 #ro.kernel.qemu=1
 #ro.kernel.qemu.gles=0
 #ro.boot.selinux=disable
 
-# Disable dirty region for Mali
-debug.hwui.render_dirty_regions=false
-
 ro.sf.lcd_density=240
 
 # performance
 ro.mtk_perf_simple_start_win=1
+ro.mtk_perf_fast_start_win=1
 ro.mtk_perf_response_time=1
 
-#persist.sys.isUsbOtgEnabled=true
-
-ro.mtk_perfservice_support=1
-
-persist.logd.logpersistd=logcatd
-
-ro.telephony.default_network=9
-
-# ClearMotion
-persist.sys.display.clearMotion=0
-# ro.mtk_clearmotion_support=1
-fmradio.driver.enable=1
-
-# Performance
-debug.performance.tuning=1
-
-# Better buffer for conections
-net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
-net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
-net.tcp.buffersize.umts=4096,87380,256960,4096,163 84,256960
-net.tcp.buffersize.gprs=4096,87380,256960,4096,163 84,256960
-net.tcp.buffersize.edge=4096,87380,256960,4096,163 84,256960
-
-# Launcher saved in memory
-ro.HOME_APP_ADJ=1
-
-# Render UI with GPU
-debug.sf.hw=1
-
-# Better scroll
-windowsmgr.max_events_per_sec=500
-
-# Better Scroll N2
-ro.max.fling_velocity=12000
-ro.min.fling_velocity=8000
-view.scroll_friction=10
-
-# Better Touch
-debug.performance.tuning=1
-video.accelerate.hw=1
-
-# Reduce the black screen time of the proximity sensor
-ro.lge.proximity.delay=25
-mot.proximity.delay=25
-
-# Liquid Smooth UI
-persist.service.lgospd.enable=0
-persist.service.pcsync.enable=0
-ro.ril.enable.a52=1
-ro.ril.enable.a53=0
-
-# Qualcomm Tweaks
-com.qc.hardware=1
-debug.qc.hardware=true
-debug.qctwa.preservebuf=1
-debug.qctwa.statusbar=1
-
-# Little Performance Tweaks
-ro.secure=0
-persist.sys.use_16bpp_alpha=1
-ro.product.gpu.driver=1
+# Engineer Code
+ro.huaqin.engineer_code=53668602
