@@ -29,6 +29,7 @@ ADDITIONAL_DEFAULT_PROPERTIES +=
     persist.sys.usb.config=mtp \
     ro.mount.fs=EXT4 \
     debug.hwui.render_dirty_regions=false \
+    ro.telephony.default_network=9 \
     persist.radio.multisim.config=dsds \
     ro.mtk_lte_support=1 \
     ro.telephony.ril_class=MT6735 \
@@ -181,6 +182,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.mt6735m \
     YGPS
+
+PRODUCT_COPY_FILES += \
+    prebuilts/ndk/current/sources/cxx-stl/stlport/libs/armeabi-v7a/libstlport_shared.so:system/lib/libstlport.so
+
+ADDITIONAL_BUILD_PROPERTIES += \
+   cm.updater.type=plain \
+   cm.updater.uri=https://raw.githubusercontent.com/LineageOS-MT6735/update-site/master/updates-14.1.json \
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
