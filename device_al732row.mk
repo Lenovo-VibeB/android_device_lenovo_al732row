@@ -169,6 +169,10 @@ PRODUCT_LOCALES := en_US es_US
 TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
 
+# Charger Mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 ## CM14 mtk symbols
 PRODUCT_PACKAGES += \
     libmtk_symbols \
@@ -186,5 +190,4 @@ ADDITIONAL_BUILD_PROPERTIES += \
    cm.updater.type=plain \
    cm.updater.uri=https://raw.githubusercontent.com/LineageOS-MT6735/update-site/master/updates-14.1.json \
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
