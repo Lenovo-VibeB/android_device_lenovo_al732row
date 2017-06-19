@@ -29,12 +29,12 @@ $(call inherit-product-if-exists, vendor/lenovo/al732row/al732row-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay
 
-#LOCAL_PATH := device/lenovo/al732row
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-#else
-#	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
+LOCAL_PATH := device/lenovo/al732row
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+else
+	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
 
 PRODUCT_PACKAGES += \
     libxlog
@@ -91,8 +91,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
     $(LOCAL_PATH)/rootdir/root/twrp.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/rootdir/root/ueventd.mt6735.rc:root/ueventd.mt6735.rc \
-    $(LOCAL_PATH)/rootdir/root/init.project.rc:root/init.project.rc
-#    $(LOCAL_KERNEL):kernel
+    $(LOCAL_PATH)/rootdir/root/init.project.rc:root/init.project.rc \
+    $(LOCAL_KERNEL):kernel
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -141,8 +141,8 @@ PRODUCT_PACKAGES += \
     mrdump_tool
 
 #Hack for prebuilt kernel
-#$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-#$(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+$(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_al732row

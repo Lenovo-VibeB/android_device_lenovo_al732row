@@ -23,7 +23,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # Kernel
-BOARD_KERNEL_CMDLINE += bootopt=64S3,32N2,32N2 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += \
+	bootopt=64S3,32N2,32N2 \
+	androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
 
@@ -35,13 +37,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 3975675904
 BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Kernel
-TARGET_KERNEL_ARCH := arm
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_SOURCE := kernel/lenovo/al732row
-TARGET_KERNEL_CONFIG := lineage_al732row_defconfig
-
-#TARGET_PREBUILT_KERNEL := kernel/lenovo/al732row/arch/arm/boot/zImage-dtb
+TARGET_PREBUILT_KERNEL := device/lenovo/al732row/kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
 
 BOARD_CUSTOM_BOOTIMG := true
@@ -96,9 +92,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/al732row/bluetooth
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
-# Recovery
+# CWM
 TARGET_RECOVERY_FSTAB := device/lenovo/al732row/rootdir/root/recovery.fstab
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/al732row/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/al732row/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
@@ -123,7 +119,7 @@ BOARD_SEPOLICY_DIRS := \
        device/lenovo/al732row/sepolicy
 
 # Use old sepolicy version
-#POLICYVERS := 29
+POLICYVERS := 29
 
 BLOCK_BASED_OTA := false
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so # for symbols in mtkaudio.cpp + mtksymbols
