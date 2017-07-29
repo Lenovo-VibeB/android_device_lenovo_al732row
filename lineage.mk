@@ -11,5 +11,5 @@ $(call inherit-product, device/lenovo/al732row/device_al732row.mk)
 PRODUCT_DEVICE := al732row
 PRODUCT_NAME := lineage_al732row
 PRODUCT_BRAND := lenovo
-PRODUCT_MODEL := Lenovo Vibe B
+PRODUCT_MODEL := Vibe B
 PRODUCT_MANUFACTURER := lenovo

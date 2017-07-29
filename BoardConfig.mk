@@ -37,11 +37,10 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 3975675904
 BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+# Kernel
 TARGET_PREBUILT_KERNEL := device/lenovo/al732row/kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
-
 BOARD_CUSTOM_BOOTIMG := true
-
 TARGET_KMODULES := true
 
 # Assert
@@ -122,5 +121,5 @@ BOARD_SEPOLICY_DIRS := \
 POLICYVERS := 29
 
 BLOCK_BASED_OTA := false
-TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so # for symbols in mtkaudio.cpp + mtksymbols
+TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
 
