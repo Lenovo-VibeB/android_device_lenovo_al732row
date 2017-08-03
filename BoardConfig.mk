@@ -51,6 +51,9 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 # EGL
 BOARD_EGL_CFG := device/lenovo/al732row/configs/egl.cfg
 USE_OPENGL_RENDERER := true

@@ -117,9 +117,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
 
-# Torch
+# Lights
 PRODUCT_PACKAGES += \
-    Torch
+    lights.mt6735m
 
 # FM Radio
 PRODUCT_PACKAGES += \
