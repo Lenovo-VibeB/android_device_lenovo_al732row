@@ -1,11 +1,12 @@
-# system.prop
+#
+# system.prop for al732row
+#
 
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
 #rild.libpath=/system/lib64/mtk-ril.so
 #rild.libargs=-d /dev/ttyC0
-
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
