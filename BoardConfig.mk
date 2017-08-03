@@ -46,7 +46,6 @@ TARGET_KMODULES := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := al732row,A2016b30
 
-#COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Disable memcpy opt (for audio libraries)
@@ -70,6 +69,7 @@ BOARD_RIL_CLASS := ../../../device/lenovo/al732row/ril/
 
 BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_CONNECTIVITY_MODULE := conn_soc
+MALLOC_SVELTE := true
 
 # WIFI
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -122,4 +122,3 @@ POLICYVERS := 29
 
 BLOCK_BASED_OTA := false
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
-
