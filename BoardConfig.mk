@@ -42,6 +42,8 @@ TARGET_PREBUILT_KERNEL := device/lenovo/al732row/kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
 BOARD_CUSTOM_BOOTIMG := true
 TARGET_KMODULES := true
+TARGET_KERNEL_SOURCE := kernel/lenovo/al732row
+TARGET_KERNEL_CONFIG := lineage_al732row_defconfig
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := al732row,A2016b30
