@@ -16,7 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
@@ -166,9 +166,6 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
 # These additionals go to /default.prop
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
@@ -190,11 +187,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.mtk_agps_app=1 \
     persist.debug.xlog.enable=1 \
     persist.sys.display.clearMotion=0 
-
-# The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/lenovo/al732row/overlay
 
 PRODUCT_PACKAGES += \
     libxlog
@@ -299,18 +291,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
-
-#Hack for prebuilt kernel
-#$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-#$(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
-
+    
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_al732row
 PRODUCT_DEVICE := al732row
 PRODUCT_LOCALES := en_US es_US
-
-TARGET_SCREEN_HEIGHT := 854
-TARGET_SCREEN_WIDTH := 480
 
 ## CM14 mtk symbols
 PRODUCT_PACKAGES += \
