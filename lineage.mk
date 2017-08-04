@@ -4,6 +4,9 @@ PRODUCT_RELEASE_NAME := al732row
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
+# The gps config appropriate for this device
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
+
 # Inherit device configuration
 $(call inherit-product, device/lenovo/al732row/device_al732row.mk)
 
