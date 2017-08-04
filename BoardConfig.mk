@@ -130,5 +130,5 @@ BOARD_SEPOLICY_DIRS := \
 # Use old sepolicy version
 POLICYVERS := 29
 
-BLOCK_BASED_OTA := true
+BLOCK_BASED_OTA := false
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
