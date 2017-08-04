@@ -94,10 +94,12 @@ index dc05e14..519b87f 100644
  
  # Access to /data/media.
  # This should be removed if sdcardfs is modified to alter the secontext for its
-@@ -138,4 +138,4 @@ allow mediaserver preloads_data_file:file { getattr read ioctl };
- neverallow mediaserver { file_type fs_type }:file execute_no_trans;
- 
- # do not allow privileged socket ioctl commands
+@@ -136,4 +136,4 @@ allow mediaserver preloads_data_file:file { getattr read ioctl };
+# mediaserver should never execute any executable without a
+# domain transition
+neverallow mediaserver { file_type fs_type }:file execute_no_trans;
+
+# do not allow privileged socket ioctl commands
 -neverallowxperm mediaserver domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
 +#neverallowxperm mediaserver domain:{ rawip_socket tcp_socket udp_socket } ioctl priv_sock_ioctls;
 diff --git a/priv_app.te b/priv_app.te
