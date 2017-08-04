@@ -442,6 +442,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     camera2.portability.force_api=1
 
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-1024-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-1024-hwui-memory.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xalhdpi-1024-hwui-memory.mk)
 $(call inherit-product-if-exists, vendor/lenovo/al732row/al732row-vendor.mk)
