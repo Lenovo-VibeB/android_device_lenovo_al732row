@@ -22,13 +22,6 @@ TARGET_BOOTLOADER_BOARD_NAME := mt6735m
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-# Kernel
-BOARD_KERNEL_CMDLINE += \
-	bootopt=64S3,32N2,32N2 \
-	androidboot.selinux=permissive
-BOARD_KERNEL_BASE := 0x40000000
-BOARD_KERNEL_PAGESIZE := 2048
-
 # make_ext4fs requires numbers in dec format
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216 
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216 
@@ -38,12 +31,16 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/lenovo/al732row/kernel
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x0e000000 --board 1473313359
-BOARD_CUSTOM_BOOTIMG := true
-TARGET_KMODULES := true
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/lenovo/al732row
-TARGET_KERNEL_CONFIG := lineage_al732row_defconfig
+BOARD_KERNEL_BASE = 0x40000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_RAMDISK_OFFSET = 0x04000000
+BOARD_TAGS_OFFSET = 0xE000000
+TARGET_KERNEL_ARCH := arm
+BOARD_KERNEL_CMDLINE = bootopt=64S3,32N2,32N2 androidboot.selinux=permissive
+BOARD_KERNEL_OFFSET = 0x00008000
+BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := al732row,A2016b30
@@ -63,11 +60,18 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # MTK Hardware
+BOARD_USES_MTK_HARDWARE := true
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
 # Offline charging
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
+
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+		WITH_DEXPREOPT ?= true
+  endif
+endif
 
 # RIL 
 BOARD_RIL_CLASS := ../../../device/lenovo/al732row/ril/
@@ -98,7 +102,7 @@ TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # CWM
 TARGET_RECOVERY_FSTAB := device/lenovo/al732row/rootdir/root/recovery.fstab
-TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/al732row/kernel
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/al732row/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
@@ -125,5 +129,5 @@ BOARD_SEPOLICY_DIRS := \
 # Use old sepolicy version
 POLICYVERS := 29
 
-BLOCK_BASED_OTA := false
+BLOCK_BASED_OTA := true
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
